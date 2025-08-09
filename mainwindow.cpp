@@ -16,5 +16,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::scriviNum(int num){
     std::cout<<num<<std::endl;
-    ui->lAX->setText("numero" + QString::number(num));
+    ui->lAX->setText("numero pazzesco: " + QString::number(num));
 }
