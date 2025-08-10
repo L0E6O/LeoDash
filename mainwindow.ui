@@ -2,13 +2,22 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::WindowModality::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1024</width>
     <height>600</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>URW Gothic</family>
+    <bold>true</bold>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
