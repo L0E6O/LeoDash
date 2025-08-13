@@ -17,6 +17,10 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        I2Cdev.cpp
+        I2Cdev.h
+        MPU6050.cpp
+        MPU6050.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
