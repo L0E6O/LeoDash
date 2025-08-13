@@ -21,12 +21,15 @@ set(PROJECT_SOURCES
         I2Cdev.h
         MPU6050.cpp
         MPU6050.h
+        datagatherer.cpp
+        datagatherer.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(LeoDash
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        datagatherer.h datagatherer.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET LeoDash APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

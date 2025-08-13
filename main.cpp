@@ -8,9 +8,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
-    int num = rand() % 101;
-    w.scriviNum(num);
-    std::cout<<"hello world"<<std::endl;
+    bool terminator = false;
+    while(!terminator){
+        w.show();
+        w.scriviNum();
+        std::cout<<"hello world"<<std::endl;
+    }
     return a.exec();
 }
