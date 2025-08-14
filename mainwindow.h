@@ -16,7 +16,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void scriviNum(int num);
+
+    void scriviDati(float dati[]);
 
 private:
     Ui::MainWindow *ui;

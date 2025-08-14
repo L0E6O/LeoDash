@@ -23,6 +23,7 @@ set(PROJECT_SOURCES
         MPU6050.h
         datagatherer.cpp
         datagatherer.h
+        helper_3dmath.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

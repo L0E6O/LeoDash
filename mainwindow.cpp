@@ -14,7 +14,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::scriviNum(int num){
-    std::cout<<num<<std::endl;
-    ui->lAX->setText("numero pazzesco: " + QString::number(num));
+void MainWindow::scriviDati(float dati[]){
+    std::cout<<dati<<std::endl;
+    ui->lAX->setText("acc" + QString::number(dati[0], 'f', 2) + "g\t" + QString::number(dati[1], 'f', 2) + "g\t" + QString::number(dati[2], 'f', 2) + "g\t");
 }
