@@ -72,7 +72,7 @@ void MPU6050_Base::initialize() {
  * @return True if connection is valid, false otherwise
  */
 bool MPU6050_Base::testConnection() {
-    return getDeviceID() == 0x34;
+    return getDeviceID() == 0x68;
 }
 
 // AUX_VDDIO register (InvenSense demo code calls this RA_*G_OFFS_TC)
