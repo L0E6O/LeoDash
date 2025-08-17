@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <unistd.h>   // usleep
 #include "MPU6050.h"
 #include "I2Cdev.h"
@@ -29,6 +30,7 @@ void DataGatherer::prendiDati(int16_t dati[]){
     accelgyro.getMotion6(&gy, &gx, &gz, &ay, &ax, &az);
 
     // Stampa formattata
+    std::cout << std::fixed << std::setprecision(1);
     std::cout << "a/g: "
               << ax/16384.0f << "\t" << ay/16384.0f << "\t" << az/16384.0f << "\t"
               << gx/131.0f << "\t" << gy/131.0f << "\t" << gz/131.0f << std::endl;
