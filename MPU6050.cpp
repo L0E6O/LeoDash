@@ -261,7 +261,7 @@ void MPU6050_Base::setFullScaleGyroRange(uint8_t range) {
  */
 uint8_t MPU6050_Base::getAccelXSelfTestFactoryTrim() {
     I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_X, &buffer[0], I2Cdev::readTimeout);
-    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_A, &buffer[1], I2Cdev::readTimeout);
+	I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_A, &buffer[1], I2Cdev::readTimeout);	
     return (buffer[0]>>3) | ((buffer[1]>>4) & 0x03);
 }
 
@@ -271,7 +271,7 @@ uint8_t MPU6050_Base::getAccelXSelfTestFactoryTrim() {
  */
 uint8_t MPU6050_Base::getAccelYSelfTestFactoryTrim() {
     I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_Y, &buffer[0], I2Cdev::readTimeout);
-    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_A, &buffer[1], I2Cdev::readTimeout);
+	I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_A, &buffer[1], I2Cdev::readTimeout);	
     return (buffer[0]>>3) | ((buffer[1]>>2) & 0x03);
 }
 
@@ -280,7 +280,7 @@ uint8_t MPU6050_Base::getAccelYSelfTestFactoryTrim() {
  * @see MPU6050_RA_SELF_TEST_Z
  */
 uint8_t MPU6050_Base::getAccelZSelfTestFactoryTrim() {
-    I2Cdev::readBytes(devAddr, MPU6050_RA_SELF_TEST_Z, 2, buffer, I2Cdev::readTimeout);
+    I2Cdev::readBytes(devAddr, MPU6050_RA_SELF_TEST_Z, 2, buffer, I2Cdev::readTimeout);	
     return (buffer[0]>>3) | (buffer[1] & 0x03);
 }
 
@@ -289,7 +289,7 @@ uint8_t MPU6050_Base::getAccelZSelfTestFactoryTrim() {
  * @see MPU6050_RA_SELF_TEST_X
  */
 uint8_t MPU6050_Base::getGyroXSelfTestFactoryTrim() {
-    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_X, buffer, I2Cdev::readTimeout);
+    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_X, buffer, I2Cdev::readTimeout);	
     return (buffer[0] & 0x1F);
 }
 
@@ -298,7 +298,7 @@ uint8_t MPU6050_Base::getGyroXSelfTestFactoryTrim() {
  * @see MPU6050_RA_SELF_TEST_Y
  */
 uint8_t MPU6050_Base::getGyroYSelfTestFactoryTrim() {
-    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_Y, buffer, I2Cdev::readTimeout);
+    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_Y, buffer, I2Cdev::readTimeout);	
     return (buffer[0] & 0x1F);
 }
 
@@ -307,7 +307,7 @@ uint8_t MPU6050_Base::getGyroYSelfTestFactoryTrim() {
  * @see MPU6050_RA_SELF_TEST_Z
  */
 uint8_t MPU6050_Base::getGyroZSelfTestFactoryTrim() {
-    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_Z, buffer, I2Cdev::readTimeout);
+    I2Cdev::readByte(devAddr, MPU6050_RA_SELF_TEST_Z, buffer, I2Cdev::readTimeout);	
     return (buffer[0] & 0x1F);
 }
 
@@ -920,7 +920,7 @@ void MPU6050_Base::setMasterClockSpeed(uint8_t speed) {
  * operation, and if it is cleared, then it's a write operation. The remaining
  * bits (6-0) are the 7-bit device address of the slave device.
  *
- * In read mode, the result of the read is placed in the lowest available
+ * In read mode, the result of the read is placed in the lowest available 
  * EXT_SENS_DATA register. For further information regarding the allocation of
  * read results, please refer to the EXT_SENS_DATA register description
  * (Registers 73 - 96).
@@ -1381,7 +1381,7 @@ bool MPU6050_Base::getInterruptMode() {
  * @see MPU6050_INTCFG_INT_LEVEL_BIT
  */
 void MPU6050_Base::setInterruptMode(bool mode) {
-    I2Cdev::writeBit(devAddr, MPU6050_RA_INT_PIN_CFG, MPU6050_INTCFG_INT_LEVEL_BIT, mode);
+   I2Cdev::writeBit(devAddr, MPU6050_RA_INT_PIN_CFG, MPU6050_INTCFG_INT_LEVEL_BIT, mode);
 }
 /** Get interrupt drive mode.
  * Will be set 0 for push-pull, 1 for open-drain.
@@ -1777,7 +1777,7 @@ void MPU6050_Base::getMotion9(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx
     (void)mx; // unused parameter
     (void)my; // unused parameter
     (void)mz; // unused parameter
-
+    
     getMotion6(ax, ay, az, gx, gy, gz);
     // TODO: magnetometer integration
 }
@@ -2748,7 +2748,7 @@ void MPU6050_Base::getFIFOBytes(uint8_t *data, uint8_t length) {
     if(length > 0){
         I2Cdev::readBytes(devAddr, MPU6050_RA_FIFO_R_W, length, data, I2Cdev::readTimeout);
     } else {
-        *data = 0;
+    	*data = 0;
     }
 }
 
@@ -2757,7 +2757,7 @@ void MPU6050_Base::getFIFOBytes(uint8_t *data, uint8_t length) {
  * @see MPU6050_FIFO_DEFAULT_TIMEOUT
  */
 uint32_t MPU6050_Base::getFIFOTimeout() {
-    return fifoTimeout;
+	return fifoTimeout;
 }
 
 /** Set timeout to get a packet from FIFO buffer.
@@ -2765,7 +2765,7 @@ uint32_t MPU6050_Base::getFIFOTimeout() {
  * @see MPU6050_FIFO_DEFAULT_TIMEOUT
  */
 void MPU6050_Base::setFIFOTimeout(uint32_t fifoTimeout) {
-    this->fifoTimeout = fifoTimeout;
+	this->fifoTimeout = fifoTimeout;
 }
 
 /** Replacement for Arduino micros().
@@ -2783,38 +2783,38 @@ static uint32_t micros() {
  *         2) when recovering from overflow
  *         0) when no valid data is available
  * ================================================================ */
-int8_t MPU6050_Base::GetCurrentFIFOPacket(uint8_t *data, uint8_t length) { // overflow proof
-    int16_t fifoC;
-    // This section of code is for when we allowed more than 1 packet to be acquired
-    uint32_t BreakTimer = micros();
-    bool packetReceived = false;
-    do {
-        if ((fifoC = getFIFOCount())  > length) {
+ int8_t MPU6050_Base::GetCurrentFIFOPacket(uint8_t *data, uint8_t length) { // overflow proof
+     int16_t fifoC;
+     // This section of code is for when we allowed more than 1 packet to be acquired
+     uint32_t BreakTimer = micros();
+     bool packetReceived = false;
+     do {
+         if ((fifoC = getFIFOCount())  > length) {
 
-            if (fifoC > 200) { // if you waited to get the FIFO buffer to > 200 bytes it will take longer to get the last packet in the FIFO Buffer than it will take to  reset the buffer and wait for the next to arrive
-                resetFIFO(); // Fixes any overflow corruption
-                fifoC = 0;
-                while (!(fifoC = getFIFOCount()) && ((micros() - BreakTimer) <= (getFIFOTimeout()))); // Get Next New Packet
-            } else { //We have more than 1 packet but less than 200 bytes of data in the FIFO Buffer
-                uint8_t Trash[I2CDEVLIB_WIRE_BUFFER_LENGTH];
-                while ((fifoC = getFIFOCount()) > length) {  // Test each time just in case the MPU is writing to the FIFO Buffer
-                    fifoC = fifoC - length; // Save the last packet
-                    uint16_t  RemoveBytes;
-                    while (fifoC) { // fifo count will reach zero so this is safe
-                        RemoveBytes = (fifoC < I2CDEVLIB_WIRE_BUFFER_LENGTH) ? fifoC : I2CDEVLIB_WIRE_BUFFER_LENGTH; // Buffer Length is different than the packet length this will efficiently clear the buffer
-                        getFIFOBytes(Trash, (uint8_t)RemoveBytes);
-                        fifoC -= RemoveBytes;
-                    }
-                }
-            }
-        }
-        if (!fifoC) return 0; // Called too early no data or we timed out after FIFO Reset
-        // We have 1 packet
-        packetReceived = fifoC == length;
-        if (!packetReceived && (micros() - BreakTimer) > (getFIFOTimeout())) return 0;
-    } while (!packetReceived);
-    getFIFOBytes(data, length); //Get 1 packet
-    return 1;
+             if (fifoC > 200) { // if you waited to get the FIFO buffer to > 200 bytes it will take longer to get the last packet in the FIFO Buffer than it will take to  reset the buffer and wait for the next to arrive
+                 resetFIFO(); // Fixes any overflow corruption
+                 fifoC = 0;
+                 while (!(fifoC = getFIFOCount()) && ((micros() - BreakTimer) <= (getFIFOTimeout()))); // Get Next New Packet
+                 } else { //We have more than 1 packet but less than 200 bytes of data in the FIFO Buffer
+                 uint8_t Trash[I2CDEVLIB_WIRE_BUFFER_LENGTH];
+                 while ((fifoC = getFIFOCount()) > length) {  // Test each time just in case the MPU is writing to the FIFO Buffer
+                     fifoC = fifoC - length; // Save the last packet
+                     uint16_t  RemoveBytes;
+                     while (fifoC) { // fifo count will reach zero so this is safe
+                         RemoveBytes = (fifoC < I2CDEVLIB_WIRE_BUFFER_LENGTH) ? fifoC : I2CDEVLIB_WIRE_BUFFER_LENGTH; // Buffer Length is different than the packet length this will efficiently clear the buffer
+                         getFIFOBytes(Trash, (uint8_t)RemoveBytes);
+                         fifoC -= RemoveBytes;
+                     }
+                 }
+             }
+         }
+         if (!fifoC) return 0; // Called too early no data or we timed out after FIFO Reset
+         // We have 1 packet
+         packetReceived = fifoC == length;
+         if (!packetReceived && (micros() - BreakTimer) > (getFIFOTimeout())) return 0;
+     } while (!packetReceived);
+     getFIFOBytes(data, length); //Get 1 packet
+     return 1;
 }
 
 
@@ -2924,37 +2924,37 @@ void MPU6050_Base::setZFineGain(int8_t gain) {
 // XA_OFFS_* registers
 
 int16_t MPU6050_Base::getXAccelOffset() {
-    uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_XA_OFFS_H:0x77); // MPU6050,MPU9150 Vs MPU6500,MPU9250
-    I2Cdev::readBytes(devAddr, SaveAddress, 2, buffer, I2Cdev::readTimeout);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
+	uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_XA_OFFS_H:0x77); // MPU6050,MPU9150 Vs MPU6500,MPU9250
+	I2Cdev::readBytes(devAddr, SaveAddress, 2, buffer, I2Cdev::readTimeout);
+	return (((int16_t)buffer[0]) << 8) | buffer[1];
 }
 void MPU6050_Base::setXAccelOffset(int16_t offset) {
-    uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_XA_OFFS_H:0x77); // MPU6050,MPU9150 Vs MPU6500,MPU9250
-    I2Cdev::writeWord(devAddr, SaveAddress, offset);
+	uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_XA_OFFS_H:0x77); // MPU6050,MPU9150 Vs MPU6500,MPU9250
+	I2Cdev::writeWord(devAddr, SaveAddress, offset);
 }
 
 // YA_OFFS_* register
 
 int16_t MPU6050_Base::getYAccelOffset() {
-    uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_YA_OFFS_H:0x7A); // MPU6050,MPU9150 Vs MPU6500,MPU9250
-    I2Cdev::readBytes(devAddr, SaveAddress, 2, buffer, I2Cdev::readTimeout);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
+	uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_YA_OFFS_H:0x7A); // MPU6050,MPU9150 Vs MPU6500,MPU9250
+	I2Cdev::readBytes(devAddr, SaveAddress, 2, buffer, I2Cdev::readTimeout);
+	return (((int16_t)buffer[0]) << 8) | buffer[1];
 }
 void MPU6050_Base::setYAccelOffset(int16_t offset) {
-    uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_YA_OFFS_H:0x7A); // MPU6050,MPU9150 Vs MPU6500,MPU9250
-    I2Cdev::writeWord(devAddr, SaveAddress, offset);
+	uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_YA_OFFS_H:0x7A); // MPU6050,MPU9150 Vs MPU6500,MPU9250
+	I2Cdev::writeWord(devAddr, SaveAddress, offset);
 }
 
 // ZA_OFFS_* register
 
 int16_t MPU6050_Base::getZAccelOffset() {
-    uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_ZA_OFFS_H:0x7D); // MPU6050,MPU9150 Vs MPU6500,MPU9250
-    I2Cdev::readBytes(devAddr, SaveAddress, 2, buffer, I2Cdev::readTimeout);
-    return (((int16_t)buffer[0]) << 8) | buffer[1];
+	uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_ZA_OFFS_H:0x7D); // MPU6050,MPU9150 Vs MPU6500,MPU9250
+	I2Cdev::readBytes(devAddr, SaveAddress, 2, buffer, I2Cdev::readTimeout);
+	return (((int16_t)buffer[0]) << 8) | buffer[1];
 }
 void MPU6050_Base::setZAccelOffset(int16_t offset) {
-    uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_ZA_OFFS_H:0x7D); // MPU6050,MPU9150 Vs MPU6500,MPU9250
-    I2Cdev::writeWord(devAddr, SaveAddress, offset);
+	uint8_t SaveAddress = ((getDeviceID() < 0x38 )? MPU6050_RA_ZA_OFFS_H:0x7D); // MPU6050,MPU9150 Vs MPU6500,MPU9250
+	I2Cdev::writeWord(devAddr, SaveAddress, offset);
 }
 
 // XG_OFFS_USR* registers
@@ -3095,7 +3095,7 @@ void MPU6050_Base::readMemoryBlock(uint8_t *data, uint16_t dataSize, uint8_t ban
 
         // read the chunk of data as specified
         I2Cdev::readBytes(devAddr, MPU6050_RA_MEM_R_W, chunkSize, data + i, I2Cdev::readTimeout);
-
+        
         // increase byte index by [chunkSize]
         i += chunkSize;
 
@@ -3129,7 +3129,7 @@ bool MPU6050_Base::writeMemoryBlock(const uint8_t *data, uint16_t dataSize, uint
 
         // make sure this chunk doesn't go past the bank boundary (256 bytes)
         if (chunkSize > 256 - address) chunkSize = 256 - address;
-
+        
         if (useProgMem) {
             // write the chunk of data as specified
             for (j = 0; j < chunkSize; j++) progBuffer[j] = *(data + i + j);
@@ -3191,7 +3191,7 @@ bool MPU6050_Base::writeProgMemoryBlock(const uint8_t *data, uint16_t dataSize, 
 }
 bool MPU6050_Base::writeDMPConfigurationSet(const uint8_t *data, uint16_t dataSize, bool useProgMem) {
     uint8_t *progBuffer = 0;
-    uint8_t success, special;
+	uint8_t success, special;
     uint16_t i, j;
     if (useProgMem) {
         progBuffer = (uint8_t *)malloc(8); // assume 8-byte blocks, realloc later if necessary
@@ -3244,7 +3244,7 @@ bool MPU6050_Base::writeDMPConfigurationSet(const uint8_t *data, uint16_t dataSi
             Serial.println(" found...");*/
             if (special == 0x01) {
                 // enable DMP-related interrupts
-
+                
                 //setIntZeroMotionEnabled(true);
                 //setIntFIFOBufferOverflowEnabled(true);
                 //setIntDMPEnabled(true);
@@ -3256,7 +3256,7 @@ bool MPU6050_Base::writeDMPConfigurationSet(const uint8_t *data, uint16_t dataSi
                 success = false;
             }
         }
-
+        
         if (!success) {
             if (useProgMem) free(progBuffer);
             return false; // uh oh
@@ -3302,14 +3302,14 @@ long map(long x, long in_min, long in_max, long out_min, long out_max) {
   @brief      Fully calibrate Gyro from ZERO in about 6-7 Loops 600-700 readings
 */
 void MPU6050_Base::CalibrateGyro(uint8_t Loops ) {
-    double kP = 0.3;
-    double kI = 90;
-    float x;
-    x = (100 - map(Loops, 1, 5, 20, 0)) * .01;
-    kP *= x;
-    kI *= x;
-
-    PID( 0x43,  kP, kI,  Loops);
+  double kP = 0.3;
+  double kI = 90;
+  float x;
+  x = (100 - map(Loops, 1, 5, 20, 0)) * .01;
+  kP *= x;
+  kI *= x;
+  
+  PID( 0x43,  kP, kI,  Loops);
 }
 
 /**
@@ -3317,74 +3317,74 @@ void MPU6050_Base::CalibrateGyro(uint8_t Loops ) {
 */
 void MPU6050_Base::CalibrateAccel(uint8_t Loops ) {
 
-    float kP = 0.3;
-    float kI = 20;
-    float x;
-    x = (100 - map(Loops, 1, 5, 20, 0)) * .01;
-    kP *= x;
-    kI *= x;
-    PID( 0x3B, kP, kI,  Loops);
+	float kP = 0.3;
+	float kI = 20;
+	float x;
+	x = (100 - map(Loops, 1, 5, 20, 0)) * .01;
+	kP *= x;
+	kI *= x;
+	PID( 0x3B, kP, kI,  Loops);
 }
 
 void MPU6050_Base::PID(uint8_t ReadAddress, float kP,float kI, uint8_t Loops){
-    uint8_t SaveAddress = (ReadAddress == 0x3B)?((getDeviceID() < 0x38 )? 0x06:0x77):0x13;
+	uint8_t SaveAddress = (ReadAddress == 0x3B)?((getDeviceID() < 0x38 )? 0x06:0x77):0x13;
 
-    int16_t  Data;
-    float Reading;
-    int16_t BitZero[3];
-    uint8_t shift =(SaveAddress == 0x77)?3:2;
-    float Error, PTerm, ITerm[3];
-    int16_t eSample;
-    uint32_t eSum;
-    uint16_t gravity = 8192; // prevent uninitialized compiler warning
-    if (ReadAddress == 0x3B) gravity = 16384 >> getFullScaleAccelRange();
-    for (int i = 0; i < 3; i++) {
-        I2Cdev::readWords(devAddr, SaveAddress + (i * shift), 1, (uint16_t *)&Data, I2Cdev::readTimeout); // reads 1 or more 16 bit integers (Word)
-        Reading = Data;
-        if(SaveAddress != 0x13){
-            BitZero[i] = Data & 1;										 // Capture Bit Zero to properly handle Accelerometer calibration
-            ITerm[i] = ((float)Reading) * 8;
-        } else {
-            ITerm[i] = Reading * 4;
-        }
-    }
-    for (int L = 0; L < Loops; L++) {
-        eSample = 0;
-        for (int c = 0; c < 100; c++) {// 100 PI Calculations
-            eSum = 0;
-            for (int i = 0; i < 3; i++) {
-                I2Cdev::readWords(devAddr, ReadAddress + (i * 2), 1, (uint16_t *)&Data, I2Cdev::readTimeout); // reads 1 or more 16 bit integers (Word)
-                Reading = Data;
-                if ((ReadAddress == 0x3B)&&(i == 2)) Reading -= gravity;	//remove Gravity
-                Error = -Reading;
-                eSum += abs(Reading);
-                PTerm = kP * Error;
-                ITerm[i] += (Error * 0.001) * kI;				// Integral term 1000 Calculations a second = 0.001
-                if(SaveAddress != 0x13){
-                    Data = round((PTerm + ITerm[i] ) / 8);		//Compute PID Output
-                    Data = ((Data)&0xFFFE) |BitZero[i];			// Insert Bit0 Saved at beginning
-                } else Data = round((PTerm + ITerm[i] ) / 4);	//Compute PID Output
-                I2Cdev::writeWords(devAddr, SaveAddress + (i * shift), 1, (uint16_t *)&Data);
-            }
-            if((c == 99) && eSum > 1000){						// Error is still to great to continue
-                c = 0;
-            }
-            if((eSum * ((ReadAddress == 0x3B)?.05: 1)) < 5) eSample++;	// Successfully found offsets prepare to  advance
-            if((eSum < 100) && (c > 10) && (eSample >= 10)) break;		// Advance to next Loop
+	int16_t  Data;
+	float Reading;
+	int16_t BitZero[3];
+	uint8_t shift =(SaveAddress == 0x77)?3:2;
+	float Error, PTerm, ITerm[3];
+	int16_t eSample;
+	uint32_t eSum;
+	uint16_t gravity = 8192; // prevent uninitialized compiler warning
+	if (ReadAddress == 0x3B) gravity = 16384 >> getFullScaleAccelRange();
+	for (int i = 0; i < 3; i++) {
+		I2Cdev::readWords(devAddr, SaveAddress + (i * shift), 1, (uint16_t *)&Data, I2Cdev::readTimeout); // reads 1 or more 16 bit integers (Word)
+		Reading = Data;
+		if(SaveAddress != 0x13){
+			BitZero[i] = Data & 1;										 // Capture Bit Zero to properly handle Accelerometer calibration
+			ITerm[i] = ((float)Reading) * 8;
+			} else {
+			ITerm[i] = Reading * 4;
+		}
+	}
+	for (int L = 0; L < Loops; L++) {
+		eSample = 0;
+		for (int c = 0; c < 100; c++) {// 100 PI Calculations
+			eSum = 0;
+			for (int i = 0; i < 3; i++) {
+				I2Cdev::readWords(devAddr, ReadAddress + (i * 2), 1, (uint16_t *)&Data, I2Cdev::readTimeout); // reads 1 or more 16 bit integers (Word)
+				Reading = Data;
+				if ((ReadAddress == 0x3B)&&(i == 2)) Reading -= gravity;	//remove Gravity
+				Error = -Reading;
+				eSum += abs(Reading);
+				PTerm = kP * Error;
+				ITerm[i] += (Error * 0.001) * kI;				// Integral term 1000 Calculations a second = 0.001
+				if(SaveAddress != 0x13){
+					Data = round((PTerm + ITerm[i] ) / 8);		//Compute PID Output
+					Data = ((Data)&0xFFFE) |BitZero[i];			// Insert Bit0 Saved at beginning
+				} else Data = round((PTerm + ITerm[i] ) / 4);	//Compute PID Output
+				I2Cdev::writeWords(devAddr, SaveAddress + (i * shift), 1, (uint16_t *)&Data);
+			}
+			if((c == 99) && eSum > 1000){						// Error is still to great to continue 
+				c = 0;
+			}
+			if((eSum * ((ReadAddress == 0x3B)?.05: 1)) < 5) eSample++;	// Successfully found offsets prepare to  advance
+			if((eSum < 100) && (c > 10) && (eSample >= 10)) break;		// Advance to next Loop
             usleep(1000);
-        }
-        kP *= .75;
-        kI *= .75;
-        for (int i = 0; i < 3; i++){
-            if(SaveAddress != 0x13) {
-                Data = round((ITerm[i] ) / 8);		//Compute PID Output
-                Data = ((Data)&0xFFFE) |BitZero[i];	// Insert Bit0 Saved at beginning
-            } else Data = round((ITerm[i]) / 4);
-            I2Cdev::writeWords(devAddr, SaveAddress + (i * shift), 1, (uint16_t *)&Data);
-        }
-    }
-    resetFIFO();
-    resetDMP();
+		}
+		kP *= .75;
+		kI *= .75;
+		for (int i = 0; i < 3; i++){
+			if(SaveAddress != 0x13) {
+				Data = round((ITerm[i] ) / 8);		//Compute PID Output
+				Data = ((Data)&0xFFFE) |BitZero[i];	// Insert Bit0 Saved at beginning
+			} else Data = round((ITerm[i]) / 4);
+			I2Cdev::writeWords(devAddr, SaveAddress + (i * shift), 1, (uint16_t *)&Data);
+		}
+	}
+	resetFIFO();
+	resetDMP();
 }
 
 int16_t * MPU6050_Base::GetActiveOffsets() {
@@ -3401,12 +3401,12 @@ int16_t * MPU6050_Base::GetActiveOffsets() {
 
 void MPU6050_Base::PrintActiveOffsets() {
     GetActiveOffsets();
-    //	A_OFFSET_H_READ_A_OFFS(Data);
+	//	A_OFFSET_H_READ_A_OFFS(Data);
     fprintf(stderr, "%.5f,\t", (float)offsets[0]);
     fprintf(stderr, "%.5f,\t", (float)offsets[1]);
     fprintf(stderr, "%.5f,\t", (float)offsets[2]);
-
-    //	XG_OFFSET_H_READ_OFFS_USR(Data);
+	
+	//	XG_OFFSET_H_READ_OFFS_USR(Data);
     fprintf(stderr, "%.5f,\t", (float)offsets[3]);
     fprintf(stderr, "%.5f,\t", (float)offsets[4]);
     fprintf(stderr, "%.5f\n\n", (float)offsets[5]);

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unistd.h>   // usleep
 #include "MPU6050.h"
+#include "I2Cdev.h"
 #include "datagatherer.h"
 
 MPU6050 accelgyro(0x68); // indirizzo di default 0x68
@@ -9,7 +10,9 @@ int16_t ax, ay, az;
 int16_t gx, gy, gz;
 
 DataGatherer::DataGatherer()  {
+
     std::cout << "Inizializzazione del dispositivo I2C..." << std::endl;
+    I2Cdev::initialize("/dev/i2c-1");
     accelgyro.initialize();
 
     std::cout << "Verifico connessione...";
