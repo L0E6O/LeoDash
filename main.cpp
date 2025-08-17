@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "datagatherer.h"
-
+#include <unistd.h>
 #include <QApplication>
 #include <iostream>
 
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         }
         w.show();
         w.scriviDati(dati);
-        std::cout<<"hello world"<<std::endl;
+        usleep(100000);
     }
     return a.exec();
 }
