@@ -30,8 +30,8 @@ void DataGatherer::prendiDati(int16_t dati[]){
 
     // Stampa formattata
     std::cout << "a/g: "
-              << ax << "\t" << ay << "\t" << az << "\t"
-              << gx << "\t" << gy << "\t" << gz << std::endl;
+              << ax/16384.0f << "\t" << ay/16384.0f << "\t" << az/16384.0f << "\t"
+              << gx/131.0f << "\t" << gy/131.0f << "\t" << gz/131.0f << std::endl;
     dati[0] = ax;
     dati[1] = ay;
     dati[2] = az;
