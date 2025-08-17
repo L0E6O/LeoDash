@@ -10,7 +10,7 @@ int16_t gx, gy, gz;
 
 DataGatherer::DataGatherer()  {
     std::cout << "Inizializzazione del dispositivo I2C..." << std::endl;
-    accelgyro.initialize("/dev/i2c-1");
+    accelgyro.initialize();
 
     std::cout << "Verifico connessione...";
     if (accelgyro.testConnection()) {
