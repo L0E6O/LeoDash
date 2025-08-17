@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         }
         w.show();
         w.scriviDati(dati);
-        usleep(100000);
+        usleep(50000);
     }
     return a.exec();
 }

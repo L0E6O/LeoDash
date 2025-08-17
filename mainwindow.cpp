@@ -15,6 +15,6 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::scriviDati(float dati[]){
-    std::cout<<dati<<std::endl;
+    std::cout<<"dati"<<std::endl;
     ui->lAX->setText("acc" + QString::number(dati[0], 'f', 2) + "g\t" + QString::number(dati[1], 'f', 2) + "g\t" + QString::number(dati[2], 'f', 2) + "g\t");
 }
