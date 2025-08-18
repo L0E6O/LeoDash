@@ -3,7 +3,8 @@
 #include <iostream>
 #include <QTimer>
 
- QTimer timer; //un timer
+ QTimer timerX; //un timer
+ QTimer timerY; //un timer
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,12 +20,21 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::scriviDati(float dati[]){
-    QObject::connect(&timer, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAX->setStyleSheet({"QLabel {background-color: white;}"});
+    QObject::connect(&timerX, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
+        ui->lAX->setStyleSheet({"{background-color: white;}"});
     });
-    if((dati[0] > 1) || (dati[1] > 1) || (dati[2] > 1)){
-        ui->lAX->setStyleSheet({"QLabel {background-color: red;}"});
-        timer.start(2000);
+    QObject::connect(&timerY, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
+        ui->lAY->setStyleSheet({"{background-color: white;}"});
+    });
+
+    if(dati[0] > 1){
+        ui->lAX->setStyleSheet({"{background-color: red;}"});
+        timerX.start(2000);
     }
-    ui->lAX->setText("acc" + QString::number(dati[0], 'f', 2) + "g\t" + QString::number(dati[1], 'f', 2) + "g\t");
+    if(dati[1] > 1){
+        ui->lAX->setStyleSheet({"{background-color: red;}"});
+        timerY.start(2000);
+    }
+    ui->lAX->setText("accX" + QString::number(dati[0], 'f', 2));
+    ui->lAY->setText("accY" + QString::number(dati[1], 'f', 2));
 }
