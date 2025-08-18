@@ -26,5 +26,5 @@ void MainWindow::scriviDati(float dati[]){
         ui->lAX->setStyleSheet({"QLabel {background-color: red;}"});
         timer.start(2000);
     }
-    ui->lAX->setText("acc" + QString::number(dati[0], 'f', 2) + "g\t" + QString::number(dati[1], 'f', 2) + "g\t" + QString::number(dati[2], 'f', 2) + "g\t");
+    ui->lAX->setText("acc" + QString::number(dati[0], 'f', 2) + "g\t" + QString::number(dati[1], 'f', 2) + "g\t");
 }
