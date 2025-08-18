@@ -27,7 +27,7 @@ DataGatherer::DataGatherer()  {
 void DataGatherer::prendiDati(int16_t dati[]){
 
     // Lettura valori raw
-    accelgyro.getMotion6(&gx, &gy, &gz, &ax, &ay, &az);
+    accelgyro.getMotion6(&gx, &gy, &gz, &ay, &ax, &az);
 
     // Stampa formattata
     std::cout << std::fixed << std::setprecision(1);
