@@ -2,7 +2,6 @@
 #include "datagatherer.h"
 #include <unistd.h>
 #include <QApplication>
-#include <iostream>
 
 
 int main(int argc, char *argv[])
@@ -13,12 +12,12 @@ int main(int argc, char *argv[])
     bool terminator = false;
     int16_t datiRaw[6];
     float dati[6];
+    w.show();
     while(!terminator){
         dG.prendiDati(datiRaw);
         for(int i = 0; i < 3; i++){
             dati[i] = datiRaw[i] / 16384.0f;
         }
-        w.show();
         w.scriviDati(dati);
         usleep(100000);
     }
