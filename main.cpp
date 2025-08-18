@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         float dati[6];
         dG.prendiDati(datiRaw);
         for (int i = 0; i < 3; i++) {
-            dati[i] = datiRaw[i] / 16384.0f;
+            dati[i] = datiRaw[i] / 1638.4f;
         }
         w.scriviDati(dati);
     });
