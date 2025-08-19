@@ -31,7 +31,7 @@ void MainWindow::scriviDati(float dati[]){
         timerX.start(2000);
     }
     if(dati[1] > 7){
-        ui->lAX->setStyleSheet({"#lAY {background-color: red;}"});
+        ui->lAY->setStyleSheet({"#lAY {background-color: red;}"});
         timerY.start(2000);
     }
     ui->lAX->setText("accX" + QString::number(dati[0], 'f', 2));
