@@ -25,7 +25,7 @@ void MainWindow::scriviDati(float dati[]){
         ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,0);}"});
     });
     QObject::connect(&timerY, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0);}"});
+        ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0); color: white;}"});
     });
 
     if(dati[0] > 7){
