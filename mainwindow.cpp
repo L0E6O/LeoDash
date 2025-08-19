@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./Renault_Clio_3_cropped.jpg); }");
     ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,0);}"});
-    ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0);}"});
+    ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0); color: white;}"});
 }
 
 MainWindow::~MainWindow()
