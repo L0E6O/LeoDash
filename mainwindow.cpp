@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include <iostream>
 #include <QTimer>
 
  QTimer timerX; //un timer
@@ -27,11 +26,11 @@ void MainWindow::scriviDati(float dati[]){
         ui->lAY->setStyleSheet({"#lAY {background-color: white;}"});
     });
 
-    if(dati[0] > 1){
+    if(dati[0] > 7){
         ui->lAX->setStyleSheet({"#lAX {background-color: red;}"});
         timerX.start(2000);
     }
-    if(dati[1] > 1){
+    if(dati[1] > 7){
         ui->lAX->setStyleSheet({"#lAY {background-color: red;}"});
         timerY.start(2000);
     }
