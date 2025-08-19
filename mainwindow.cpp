@@ -10,7 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./Renault_Clio_3.jpg); }");
+    ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,0);}"});
+    ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0);}"});
 }
 
 MainWindow::~MainWindow()
@@ -20,10 +22,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::scriviDati(float dati[]){
     QObject::connect(&timerX, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAX->setStyleSheet({"#lAX {background-color: white;}"});
+        ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,0);}"});
     });
     QObject::connect(&timerY, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAY->setStyleSheet({"#lAY {background-color: white;}"});
+        ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0);}"});
     });
 
     if(dati[0] > 7){

@@ -28,9 +28,22 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>621</width>
+      <width>1021</width>
       <height>241</height>
      </rect>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>URW Gothic</family>
+      <pointsize>80</pointsize>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Numero casuale: </string>
@@ -43,13 +56,26 @@
     </property>
    </widget>
    <widget class="QLabel" name="lAY">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>330</y>
-      <width>621</width>
-      <height>241</height>
+      <width>1021</width>
+      <height>271</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>URW Gothic</family>
+      <pointsize>80</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::NoFrame</enum>
     </property>
     <property name="text">
      <string>Numero casuale: </string>
