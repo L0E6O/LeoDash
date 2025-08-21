@@ -106,7 +106,7 @@
     </widget>
     <widget class="QWidget" name="GyroTab">
      <attribute name="title">
-      <string>GyroTab</string>
+      <string>Gyro</string>
      </attribute>
      <widget class="QLabel" name="label">
       <property name="geometry">
