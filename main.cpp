@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     bool terminator = false;
     int16_t datiRaw[6];
     float dati[6];
+    w.setWindowState(Qt::WindowFullScreen);
     w.show();
 
     QTimer timer; //un timer
