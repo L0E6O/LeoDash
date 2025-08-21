@@ -22,18 +22,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::scriviDati(float dati[]){
     QObject::connect(&timerX, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,0);}"});
+        ui->lAX->setStyleSheet({"#lAX {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
     });
     QObject::connect(&timerY, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0); color: white;}"});
+        ui->lAY->setStyleSheet({"#lAY {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
     });
 
     if((dati[0] > 7) || (dati[0] < -7)){
-        ui->lAX->setStyleSheet({"#lAX {background-color: red;}"});
+        ui->lAX->setStyleSheet({"#lAX {background-color: red; border-radius: 30px;}"});
         timerX.start(2000);
     }
     if((dati[1] > 7) || (dati[1] < -7)){
-        ui->lAY->setStyleSheet({"#lAY {background-color: red;}"});
+        ui->lAY->setStyleSheet({"#lAY {background-color: red; border-radius: 30px;}"});
         timerY.start(2000);
     }
     ui->lAX->setText("accX" + QString::number(dati[0], 'f', 2));
