@@ -10,9 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./Renault_Clio_3_cropped.jpg); }");
-    ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,0);}"});
-    ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0); color: white;}"});
+    ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); }");
+    ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,100); border-radius: 30px;}"});
+    ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,100); color: white; border-radius: 30px;}"});
 }
 
 MainWindow::~MainWindow()
@@ -28,11 +28,11 @@ void MainWindow::scriviDati(float dati[]){
         ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0); color: white;}"});
     });
 
-    if(dati[0] > 7){
+    if((dati[0] > 7) || (dati[0] < -7)){
         ui->lAX->setStyleSheet({"#lAX {background-color: red;}"});
         timerX.start(2000);
     }
-    if(dati[1] > 7){
+    if((dati[1] > 7) || (dati[1] < -7)){
         ui->lAY->setStyleSheet({"#lAY {background-color: red;}"});
         timerY.start(2000);
     }
