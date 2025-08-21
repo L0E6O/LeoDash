@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); }");
     ui->Tabs->setStyleSheet("#Tabs {background-color: rgba(0,0,0,0);}");
-    ui->AccTab->setStyleSheet("#Tabs {background-color: rgba(0,0,0,0);}");
-    ui->GyroTab->setStyleSheet("#Tabs {background-color: rgba(0,0,0,0);}");
+    ui->AccTab->setStyleSheet("#AccTab {background-color: rgba(0,0,0,0);}");
+    ui->GyroTab->setStyleSheet("#GyroTab {background-color: rgba(0,0,0,0);}");
     ui->lAX->setStyleSheet({"#lAX {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
     ui->lAY->setStyleSheet({"#lAY {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
 }
