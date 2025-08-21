@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); }");
-    ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,100); border-radius: 30px;}"});
-    ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,100); color: white; border-radius: 30px;}"});
+    ui->lAX->setStyleSheet({"#lAX {background-color: rgb(0,0,0); border-radius: 30px;}"});
+    ui->lAY->setStyleSheet({"#lAY {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
 }
 
 MainWindow::~MainWindow()
