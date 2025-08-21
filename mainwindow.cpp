@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
     ui->lAX->setStyleSheet({"#lAX {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
     ui->lAY->setStyleSheet({"#lAY {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
+    ui->lGX->setStyleSheet({"#lGX {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
+    ui->lGY->setStyleSheet({"#lGY {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
 }
 
 MainWindow::~MainWindow()
@@ -39,4 +41,6 @@ void MainWindow::scriviDati(float dati[]){
     }
     ui->lAX->setText("accX" + QString::number(dati[0], 'f', 2));
     ui->lAY->setText("accY" + QString::number(dati[1], 'f', 2));
+    ui->lGX->setText("accX" + QString::number(dati[3], 'f', 2));
+    ui->lGY->setText("accY" + QString::number(dati[4], 'f', 2));
 }

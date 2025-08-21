@@ -24,6 +24,9 @@ int main(int argc, char *argv[])
         for (int i = 0; i < 3; i++) {
             dati[i] = datiRaw[i] / 1638.4f;
         }
+        for (int i = 3; i < 6; i++){
+            dati[i] = datiRaw[i] / 131.0;
+        }
         w.scriviDati(dati);
     });
 
