@@ -26,7 +26,7 @@
    <widget class="QLabel" name="lAX">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>30</y>
       <width>521</width>
       <height>141</height>
@@ -50,6 +50,9 @@
     </property>
     <property name="scaledContents">
      <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="lAY">
@@ -79,6 +82,9 @@
     </property>
     <property name="scaledContents">
      <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
