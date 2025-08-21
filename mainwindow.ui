@@ -26,10 +26,10 @@
    <widget class="QLabel" name="lAX">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1021</width>
-      <height>241</height>
+      <x>60</x>
+      <y>30</y>
+      <width>411</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="sizeIncrement">
@@ -41,7 +41,7 @@
     <property name="font">
      <font>
       <family>URW Gothic</family>
-      <pointsize>80</pointsize>
+      <pointsize>40</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -61,16 +61,16 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>330</y>
-      <width>1021</width>
-      <height>271</height>
+      <x>550</x>
+      <y>500</y>
+      <width>421</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>URW Gothic</family>
-      <pointsize>80</pointsize>
+      <pointsize>40</pointsize>
       <bold>true</bold>
      </font>
     </property>
