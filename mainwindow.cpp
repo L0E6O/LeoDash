@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); }");
+    ui->centralwidget->setAutoFillBackground(true);
     ui->Tabs->setAttribute(Qt::WA_TranslucentBackground);
     ui->AccTab->setAttribute(Qt::WA_TranslucentBackground);
     ui->GyroTab->setAttribute(Qt::WA_TranslucentBackground);
