@@ -28,8 +28,8 @@
      <rect>
       <x>60</x>
       <y>30</y>
-      <width>411</width>
-      <height>91</height>
+      <width>521</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="sizeIncrement">
@@ -41,7 +41,7 @@
     <property name="font">
      <font>
       <family>URW Gothic</family>
-      <pointsize>40</pointsize>
+      <pointsize>45</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -61,16 +61,16 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>500</y>
-      <width>421</width>
-      <height>71</height>
+      <x>510</x>
+      <y>450</y>
+      <width>511</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>URW Gothic</family>
-      <pointsize>40</pointsize>
+      <pointsize>45</pointsize>
       <bold>true</bold>
      </font>
     </property>
