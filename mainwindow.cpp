@@ -41,6 +41,6 @@ void MainWindow::scriviDati(float dati[]){
     }
     ui->lAX->setText("accX" + QString::number(dati[0], 'f', 2));
     ui->lAY->setText("accY" + QString::number(dati[1], 'f', 2));
-    ui->lGX->setText("accX" + QString::number(dati[3], 'f', 2));
-    ui->lGY->setText("accY" + QString::number(dati[4], 'f', 2));
+    ui->lGX->setText("gyroX" + QString::number(dati[3], 'f', 2));
+    ui->lGY->setText("gyroY" + QString::number(dati[4], 'f', 2));
 }
