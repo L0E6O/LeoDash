@@ -11,10 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); }");
-    ui->centralwidget->setAutoFillBackground(true);
-    ui->Tabs->setAttribute(Qt::WA_TranslucentBackground);
-    ui->AccTab->setAttribute(Qt::WA_TranslucentBackground);
-    ui->GyroTab->setAttribute(Qt::WA_TranslucentBackground);
+    ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
     ui->lAX->setStyleSheet({"#lAX {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
     ui->lAY->setStyleSheet({"#lAY {background-color: rgb(0,0,0); color: white; border-radius: 30px;}"});
 }
