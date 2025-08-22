@@ -183,6 +183,12 @@
       <height>101</height>
      </rect>
     </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
     <property name="text">
      <string/>
     </property>
