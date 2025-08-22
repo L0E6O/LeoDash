@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->modeButton, &QToolButton::clicked, this, [&](){
         mode = !mode;
         if(mode){
-            textColor = "black";
+            textColor = "white";
             ui->lAX->setStyleSheet({"#lAX {color: " + textColor + "; transition: .5s}"});
             ui->lAY->setStyleSheet({"#lAY {color: " + textColor + "; transition: .5s}"});
             ui->lGX->setStyleSheet({"#lGX {color: " + textColor + "; transition: .5s}"});
