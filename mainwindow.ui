@@ -33,7 +33,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="AccTab">
      <attribute name="title">
@@ -78,7 +78,7 @@
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>430</y>
+        <y>360</y>
         <width>511</width>
         <height>131</height>
        </rect>
@@ -180,7 +180,7 @@
       <x>940</x>
       <y>0</y>
       <width>81</width>
-      <height>61</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="sizeIncrement">

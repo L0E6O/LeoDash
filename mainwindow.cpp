@@ -6,6 +6,9 @@
  QTimer timerX; //un timer
  QTimer timerY; //un timer
 
+ bool mode = false;
+ QString textColor = "white";
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -18,9 +21,34 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lGX->setStyleSheet({"#lGX {background-color: rgba(0,0,0,0); color: white;}"});
     ui->lGY->setStyleSheet({"#lGY {background-color: rgba(0,0,0,0); color: white;}"});
     ui->offButton->setIcon(QIcon("./poweroff.svg"));
+    ui->offButton->setIcon(QIcon("./mode.svg"));
     QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){
         std::cout << "---CHIUSURA APPLICAZIONE---" << std::endl;
         exit(0);
+    });
+    QObject::connect(ui->modeButton, &QToolButton::clicked, this, [&](){
+        mode = !mode;
+        if(mode){
+            textColor = "black";
+            ui->lAX->setStyleSheet({"#lAX {color: " + textColor + "; transition: .5s}"});
+            ui->lAY->setStyleSheet({"#lAY {color: " + textColor + "; transition: .5s}"});
+            ui->lGX->setStyleSheet({"#lGX {color: " + textColor + "; transition: .5s}"});
+            ui->lGY->setStyleSheet({"#lGY {color: " + textColor + "; transition: .5s}"});
+            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #000000;width: 280px;height:48px;font-size:24px transition: .5s;} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
+            ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio_light.png); }");
+            ui->offButton->setIcon(QIcon("./poweroff_dark.svg"));
+            ui->offButton->setIcon(QIcon("./mode_dark.svg"));
+        } else {
+            textColor = "black";
+            ui->lAX->setStyleSheet({"#lAX {color: " + textColor + "; transition: .5s}"});
+            ui->lAY->setStyleSheet({"#lAY {color: " + textColor + "; transition: .5s}"});
+            ui->lGX->setStyleSheet({"#lGX {color: " + textColor + "; transition: .5s}"});
+            ui->lGY->setStyleSheet({"#lGY {color: " + textColor + "; transition: .5s}"});
+            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px; transition: .5s;} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
+            ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); transition: .5s;}");
+            ui->offButton->setIcon(QIcon("./poweroff.svg"));
+            ui->offButton->setIcon(QIcon("./mode.svg"));
+        }
     });
 }
 
@@ -31,10 +59,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::scriviDati(float dati[]){
     QObject::connect(&timerX, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAX->setStyleSheet({"#lAX {color: white;}"});
+        ui->lAX->setStyleSheet({"#lAX {color: " + textColor + ";}"});
     });
     QObject::connect(&timerY, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
-        ui->lAY->setStyleSheet({"#lAY {color: white;}"});
+        ui->lAY->setStyleSheet({"#lAY {color: " + textColor + ";}"});
     });
 
     if((dati[0] > 7) || (dati[0] < -7)){
