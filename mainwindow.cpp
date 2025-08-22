@@ -30,22 +30,22 @@ MainWindow::MainWindow(QWidget *parent)
         mode = !mode;
         if(mode){
             textColor = "black";
-            ui->lAX->setStyleSheet({"#lAX {color: " + textColor + "; transition: .5s}"});
-            ui->lAY->setStyleSheet({"#lAY {color: " + textColor + "; transition: .5s}"});
-            ui->lGX->setStyleSheet({"#lGX {color: " + textColor + "; transition: .5s}"});
-            ui->lGY->setStyleSheet({"#lGY {color: " + textColor + "; transition: .5s}"});
-            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #000;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
+            ui->lAX->setStyleSheet({"#lAX {color: " + textColor + ";}"});
+            ui->lAY->setStyleSheet({"#lAY {color: " + textColor + ";}"});
+            ui->lGX->setStyleSheet({"#lGX {color: " + textColor + ";}"});
+            ui->lGY->setStyleSheet({"#lGY {color: " + textColor + ";}"});
+            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #000;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #D6D3CE; color: #008BEA;}");
             ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio_light.png); }");
             ui->offButton->setIcon(QIcon("./poweroff_dark.svg"));
             ui->offButton->setIcon(QIcon("./mode_dark.svg"));
         } else {
             textColor = "white";
-            ui->lAX->setStyleSheet({"#lAX {color: " + textColor + "; transition: .5s}"});
-            ui->lAY->setStyleSheet({"#lAY {color: " + textColor + "; transition: .5s}"});
-            ui->lGX->setStyleSheet({"#lGX {color: " + textColor + "; transition: .5s}"});
-            ui->lGY->setStyleSheet({"#lGY {color: " + textColor + "; transition: .5s}"});
+            ui->lAX->setStyleSheet({"#lAX {color: " + textColor + ";}"});
+            ui->lAY->setStyleSheet({"#lAY {color: " + textColor + ";}"});
+            ui->lGX->setStyleSheet({"#lGX {color: " + textColor + ";}"});
+            ui->lGY->setStyleSheet({"#lGY {color: " + textColor + ";}"});
             ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #000;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
-            ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); transition: .5s;}");
+            ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png);}");
             ui->offButton->setIcon(QIcon("./poweroff.svg"));
             ui->offButton->setIcon(QIcon("./mode.svg"));
         }
