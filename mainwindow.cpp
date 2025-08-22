@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0); color: white;}"});
     ui->lGX->setStyleSheet({"#lGX {background-color: rgba(0,0,0,0); color: white;}"});
     ui->lGY->setStyleSheet({"#lGY {background-color: rgba(0,0,0,0); color: white;}"});
+    ui->offButton->setIcon(QIcon("./poweroff.svg"));
     QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){
         std::cout << "---CHIUSURA APPLICAZIONE---" << std::endl;
         exit(0);

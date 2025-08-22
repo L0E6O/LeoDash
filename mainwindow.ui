@@ -177,10 +177,10 @@
    <widget class="QToolButton" name="offButton">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>940</x>
       <y>0</y>
-      <width>131</width>
-      <height>101</height>
+      <width>81</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="sizeIncrement">
