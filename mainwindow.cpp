@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->modeButton, &QToolButton::clicked, this, [&](){
         mode = !mode;
         if(mode){
-            textColor = "white";
+            textColor = "black";
             ui->lAX->setStyleSheet({"#lAX {color: " + textColor + "; transition: .5s}"});
             ui->lAY->setStyleSheet({"#lAY {color: " + textColor + "; transition: .5s}"});
             ui->lGX->setStyleSheet({"#lGX {color: " + textColor + "; transition: .5s}"});
@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->offButton->setIcon(QIcon("./poweroff_dark.svg"));
             ui->offButton->setIcon(QIcon("./mode_dark.svg"));
         } else {
-            textColor = "black";
+            textColor = "white";
             ui->lAX->setStyleSheet({"#lAX {color: " + textColor + "; transition: .5s}"});
             ui->lAY->setStyleSheet({"#lAY {color: " + textColor + "; transition: .5s}"});
             ui->lGX->setStyleSheet({"#lGX {color: " + textColor + "; transition: .5s}"});
