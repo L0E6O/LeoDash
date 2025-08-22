@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #000;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #D6D3CE; color: #008BEA;}");
             ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio_light.png); }");
             ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff_dark.svg"));
-            ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode_dark.svg"));
+            ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode_dark.svg"));
         } else {
             textColor = "white";
             ui->lAX->setStyleSheet({"#lAX {color: " + textColor + ";}"});
@@ -47,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
             ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png);}");
             ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff.svg"));
-            ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
+            ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
         }
     });
 }
