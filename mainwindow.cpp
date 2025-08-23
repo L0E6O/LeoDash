@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lGY->setStyleSheet({"#lGY {background-color: rgba(0,0,0,0); color: white;}"});
     ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff.svg"));
     ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
-    ui->modeButton->setStyleSheet("#modeButton:hover{background: none; border:none;}");
+    ui->modeButton->setStyleSheet("#modeButton{background: none; border: none;} #modeButton:hover{background: none; border:none;}");
     QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){
         std::cout << "---CHIUSURA APPLICAZIONE---" << std::endl;
         exit(0);
