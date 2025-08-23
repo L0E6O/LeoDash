@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lGY->setStyleSheet({"#lGY {background-color: rgba(0,0,0,0); color: white;}"});
     ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff.svg"));
     ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
-    ui->modeButton->setStyleSheet("#modeButton{background: none; border: none;} #modeButton:pressed{background: red;} #modeButton:hover{background: none; border:none;}");
+    ui->modeButton->setStyleSheet("#modeButton{background: none; border: none;} #modeButton:hover{background: none; border:none;}");
     QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){
         std::cout << "---CHIUSURA APPLICAZIONE---" << std::endl;
         exit(0);
@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->lAY->setStyleSheet({"#lAY {color: " + textColor + ";}"});
             ui->lGX->setStyleSheet({"#lGX {color: " + textColor + ";}"});
             ui->lGY->setStyleSheet({"#lGY {color: " + textColor + ";}"});
-            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #000;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #D6D3CE; color: #008BEA;}");
+            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #000;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #D6D3CE; color: #F73636;}");
             ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio_light.png); }");
             ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff_dark.svg"));
             ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode_dark.svg"));
