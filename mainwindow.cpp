@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png); }");
-    ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
+    ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #F73636;}");
     ui->lAX->setStyleSheet({"#lAX {background-color: rgba(0,0,0,0); color: white;}"});
     ui->lAY->setStyleSheet({"#lAY {background-color: rgba(0,0,0,0); color: white;}"});
     ui->lGX->setStyleSheet({"#lGX {background-color: rgba(0,0,0,0); color: white;}"});
@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->lAY->setStyleSheet({"#lAY {color: " + textColor + ";}"});
             ui->lGX->setStyleSheet({"#lGX {color: " + textColor + ";}"});
             ui->lGY->setStyleSheet({"#lGY {color: " + textColor + ";}"});
-            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #008BEA;}");
+            ui->Tabs->setStyleSheet("QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} QTabBar::tab {background-color: transparent;color: #ccc;width: 280px;height:48px;font-size:24px} QTabBar::tab:hover{background-color:#ddd; color: white;} QTabBar::tab:selected{background-color: #363535; color: #F73636;}");
             ui->centralwidget->setStyleSheet("#centralwidget { background-image: url(./clio.png);}");
             ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff.svg"));
             ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
