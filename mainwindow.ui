@@ -239,7 +239,7 @@
      <enum>QToolButton::ToolButtonPopupMode::InstantPopup</enum>
     </property>
     <property name="autoRaise">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
