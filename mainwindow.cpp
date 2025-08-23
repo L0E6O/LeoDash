@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lGX->setStyleSheet({"#lGX {background-color: rgba(0,0,0,0); color: white;}"});
     ui->lGY->setStyleSheet({"#lGY {background-color: rgba(0,0,0,0); color: white;}"});
     ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff.svg"));
-    ui->offButton->setStyleSheet("#offButton:hover{background: none; border:none;}");
     ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
     ui->modeButton->setStyleSheet("#modeButton:hover{background: none; border:none;}");
     QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){
