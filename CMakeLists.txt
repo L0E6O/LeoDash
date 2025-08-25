@@ -13,10 +13,12 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(BOOST_ROOT "/home/leo/boost_1_89_0")
+set(BOOST_INCLUDEDIR "/home/leo/boost_1_89_0")
+set(BOOST_LIBRARYDIR "/home/leo/boost_1_89_0/stage/lib")
 find_package(Boost 1.89 REQUIRED COMPONENTS system)
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
-target_link_libraries(tuo_target Boost::system pthread)
+
 
 
 set(PROJECT_SOURCES
