@@ -2,4 +2,3 @@
 cd /home/leo/LeoDash/
 git pull
 cmake . && make
-./LeoDash

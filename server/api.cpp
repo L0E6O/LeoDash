@@ -8,7 +8,9 @@
 #include <memory>
 #include <string>
 #include <thread>
+#include <mutex>
 #include "json.hpp"
+#include "api.hpp"
 
 namespace beast = boost::beast; // from <boost/beast.hpp>
 namespace http = beast::http;   // from <boost/beast/http.hpp>
@@ -16,15 +18,18 @@ namespace net = boost::asio;    // from <boost/asio.hpp>
 using tcp = net::ip::tcp;       // from <boost/asio/ip/tcp.hpp>
 
 float* dati_p;
+std::mutex* mtx_p;
 
 // This function produces an HTTP response for the given request.
 http::response<http::string_body> handle_request(http::request<http::string_body> const& req) {
     if (req.method() == http::verb::get && req.target() == "/api/MPU6050/data") {
         // Handle GET request
+        mtx_p->lock();
         nlohmann::json json_response = {{"accX", dati_p[0]},
                                         {"accY", dati_p[1]},
                                         {"gyroX", dati_p[3]},
                                         {"gyroY", dati_p[4]}};
+        mtx_p->unlock();
         http::response<http::string_body> res{http::status::ok, req.version()};
         res.set(http::field::server, "Beast");
         res.set(http::field::content_type, "application/json");
@@ -141,7 +146,7 @@ public:
             std::cerr << "Listen error: " << ec.message() << std::endl;
             return;
         }
-        
+
         std::cout<<"Listening on 8080"<<std::endl;
 
         do_accept();
@@ -158,10 +163,16 @@ private:
     }
 };
 
-void apiServerStartup(float* dati) {
+// Class member function implementations
+api::api() {
+    // Constructor implementation - can be empty or add initialization code
+}
+
+void api::apiServerStartup(float* dati, std::mutex* mtx) {
     try {
         std::cout<<"starting server configuration..."<<std::endl;
         dati_p = dati;
+        mtx_p = mtx;
         auto const address = net::ip::make_address("0.0.0.0");
         unsigned short port = 8080;
 
