@@ -160,6 +160,7 @@ private:
 
 void apiServerStartup(float* dati) {
     try {
+        std::cout<<"starting server configuration..."<<std::endl;
         dati_p = dati;
         auto const address = net::ip::make_address("0.0.0.0");
         unsigned short port = 8080;

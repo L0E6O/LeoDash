@@ -33,6 +33,6 @@ int main(int argc, char *argv[])
         w.scriviDati(dati);
     });
 
-    timer.start(100); // ogni 100 ms (come usleep(100000))
+    timer.start(200); // ogni 100 ms (come usleep(100000))
     return a.exec();
 }
