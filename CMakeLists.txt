@@ -24,13 +24,15 @@ set(PROJECT_SOURCES
         datagatherer.cpp
         datagatherer.h
         helper_3dmath.h
+        ./server/api.cpp
+        ./server/api.hpp
+        ./server/json.hpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(LeoDash
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        datagatherer.h datagatherer.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET LeoDash APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

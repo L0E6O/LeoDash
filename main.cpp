@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <QApplication>
 #include <QTimer>
+#include "./server/api.hpp"
 
 
 int main(int argc, char *argv[])
@@ -10,16 +11,18 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     DataGatherer dG;
+    api api;
     bool terminator = false;
     int16_t datiRaw[6];
     float dati[6];
     w.setWindowState(Qt::WindowFullScreen);
     w.show();
 
+    api.apiServerStartup(dati);
+
     QTimer timer; //un timer
     QObject::connect(&timer, &QTimer::timeout, [&]() { //ogni volta che il timer finisce (evento timeout), eseguo la funzione passando tutte le variabili di contesto con [&]
         int16_t datiRaw[6];
-        float dati[6];
         dG.prendiDati(datiRaw);
         for (int i = 0; i < 3; i++) {
             dati[i] = datiRaw[i] / 1638.4f;
