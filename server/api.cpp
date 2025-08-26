@@ -22,7 +22,7 @@ std::mutex* mtx_p;
 
 // This function produces an HTTP response for the given request.
 http::response<http::string_body> handle_request(http::request<http::string_body> const& req) {
-    if (req.method() == http::verb::get && req.target() == "/api/MPU6050/data") {
+    if (req.method() == http::verb::get && req.target() == "/api/MPU6050/data/") {
         // Handle GET request
         mtx_p->lock();
         nlohmann::json json_response = {{"accX", dati_p[0]},
@@ -173,7 +173,7 @@ void api::apiServerStartup(float* dati, std::mutex* mtx) {
         std::cout<<"starting server configuration..."<<std::endl;
         dati_p = dati;
         mtx_p = mtx;
-        auto const address = net::ip::make_address("0.0.0.0");
+        auto const address = net::ip::make_address("127.0.0.1");
         unsigned short port = 8080;
 
         net::io_context ioc{1};
