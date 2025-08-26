@@ -173,7 +173,7 @@ void api::apiServerStartup(float* dati, std::mutex* mtx) {
         std::cout<<"starting server configuration..."<<std::endl;
         dati_p = dati;
         mtx_p = mtx;
-        auto const address = net::ip::make_address("127.0.0.1");
+        auto const address = net::ip::make_address("0.0.0.0");
         unsigned short port = 8080;
 
         net::io_context ioc{1};
