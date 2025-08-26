@@ -9,6 +9,8 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(apiHost);
+        
         const response = await fetch(`http://${apiHost}:8080/api/MPU6050/data/`, {method: "GET"});
         
         if (response.ok) {
