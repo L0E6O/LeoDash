@@ -2,7 +2,7 @@ services:
   my_node:
       user: ${MY_UID}:${MY_GID}
       build:
-        context: ./build
+        context: ./
         dockerfile: Dockerfile.node
         args:
           UID: ${MY_UID}
