@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 function App() {
   const [data, setData] = useState(null);
 
+  const apiHost = process.env.REACT_APP_API_HOST
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/MPU6050/data/", {
-          method: "GET"
-        });
+        const response = await fetch(`http://${apiHost}:8080/api/MPU6050/data/`, {method: "GET"});
         
         if (response.ok) {
           const result = await response.json();
