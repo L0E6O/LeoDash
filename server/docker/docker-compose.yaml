@@ -1,0 +1,14 @@
+my_node:
+    user: ${MY_UID}:${MY_GID}
+    build:
+      context: ./build
+      dockerfile: Dockerfile.node
+      args:
+        UID: ${MY_UID}
+        GID: ${MY_GID}
+    ports:
+      - 3000:3000
+    volumes:
+      - "./app:/app"
+
+#da eseguire con MY_UID=$(id -u) MY_GID=$(id -g) docker-compose up
