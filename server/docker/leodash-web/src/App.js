@@ -1,23 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/MPU6050/data/", {
+          method: "GET"
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          setData(result);
+          console.log(result);
+        } else {
+          console.error('Failed to fetch data:', response.status);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    // Call immediately
+    fetchData();
+
+    // Set up interval
+    const interval = setInterval(fetchData, 200);
+
+    // Cleanup function to clear interval
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array means this runs once on mount
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data ? (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      ) : (
+        <p>Loading data...</p>
+      )}
     </div>
   );
 }
