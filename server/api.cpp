@@ -22,7 +22,6 @@ std::mutex* mtx_p;
 
 // This function produces an HTTP response for the given request.
 http::response<http::string_body> handle_request(http::request<http::string_body> const& req) {
-    std::cout<<req.method_string()<<"_____"<<req.target()<<std::endl;
     if (req.method() == http::verb::get && req.target() == "/api/MPU6050/data/") {
         // Handle GET request
         mtx_p->lock();
