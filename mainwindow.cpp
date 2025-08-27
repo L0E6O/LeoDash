@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
     ui->modeButton->setStyleSheet("#modeButton{background: none; border: none;} #modeButton:hover{background: none; border:none;}");
     QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){
+        //MainWindow::~MainWindow();
         std::cout << "---CHIUSURA WEBAPP---" << std::endl;
         std::system("chmod +x ./server/docker/leodash-web/shutdown-webapp.sh");
         std::system("./server/docker/leodash-web/shutdown-webapp.sh");
