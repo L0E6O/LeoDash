@@ -9,6 +9,9 @@ function App() {
       try {
         
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/MPU6050/data/`, {method: "GET"});
+
+        console.log(response);
+        
         
         if (response.ok) {
           const result = await response.json();
