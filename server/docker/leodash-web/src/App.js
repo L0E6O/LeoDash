@@ -8,7 +8,7 @@ function App() {
     const fetchData = async () => {
       try {
         
-        const response = await fetch(`172.20.10.5:8080/api/MPU6050/data/`, {method: "GET"});
+        const response = await fetch(`http://172.20.10.5:8080/api/MPU6050/data/`, {method: "GET"});
 
         console.log(response);
         
