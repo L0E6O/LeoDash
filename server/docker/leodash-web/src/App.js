@@ -4,11 +4,15 @@ import { useEffect, useState } from 'react';
 function App() {
   const [data, setData] = useState(null);
 
+  process.env.REACT_APP_API_URL = hostIp;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         
-        const response = await fetch(`http://172.20.10.5:8080/api/MPU6050/data/`, {method: "GET"});
+        console.log(hostIp);
+
+        const response = await fetch(`http://${hostIp}:8080/api/MPU6050/data/`, {method: "GET"});
 
         console.log(response);
         
