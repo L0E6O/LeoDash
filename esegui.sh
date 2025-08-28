@@ -21,7 +21,7 @@ echo "✅ LeoDash avviato con PID: $LEODASH_PID"
 
 echo "🐳 Avvio webserver React..."
 cd /home/leo/LeoDash/server/docker/leodash-web/
-docker compose up -d
+./startup-webapp.sh
 
 echo "✅ Tutto avviato con successo!"
 echo "📝 Per fermare LeoDash: kill $LEODASH_PID"
