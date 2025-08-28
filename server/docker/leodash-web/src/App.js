@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [data, setData] = useState(null);
 
-  hostIp = process.env.REACT_APP_API_URL;
+  const hostIp = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
