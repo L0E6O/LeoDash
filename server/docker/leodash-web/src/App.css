@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.sensor-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 16px;
+}
+
+.sensor-div > * {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 250px;
+}
