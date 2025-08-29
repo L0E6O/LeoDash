@@ -1,3 +1,5 @@
+#tutti i file che verranno ignorati nella build dell'immagine docker
+
 node_modules
 npm-debug.log
 build

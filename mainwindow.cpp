@@ -24,15 +24,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->offButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/poweroff.svg"));
     ui->modeButton->setIcon(QIcon(QCoreApplication::applicationDirPath() + "/mode.svg"));
     ui->modeButton->setStyleSheet("#modeButton{background: none; border: none;} #modeButton:hover{background: none; border:none;}");
-    QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){
-        //MainWindow::~MainWindow();
+    QObject::connect(ui->offButton, &QToolButton::clicked, this, [&](){ //quando il bottone di spegnimento viene premuto...
+        //MainWindow::~MainWindow(); non so se potrebbe funzionare, per disattvare la GUI come prima cosa
         std::cout << "---CHIUSURA WEBAPP---" << std::endl;
-        std::system("chmod +x ./server/docker/leodash-web/shutdown-webapp.sh");
-        std::system("./server/docker/leodash-web/shutdown-webapp.sh");
+        std::system("chmod +x ./server/docker/leodash-web/shutdown-webapp.sh"); //eseguo comandi di sistema
+        std::system("./server/docker/leodash-web/shutdown-webapp.sh"); //idem a sopra
         std::cout << "---CHIUSURA APPLICAZIONE---" << std::endl;
-        exit(0);
+        exit(0); //chiudo eseguibile C++
     });
-    QObject::connect(ui->modeButton, &QToolButton::clicked, this, [&](){
+    QObject::connect(ui->modeButton, &QToolButton::clicked, this, [&](){ //quando il bottone di modalità giorno/notte viene premuto
         mode = !mode;
         if(mode){
             textColor = "black";
@@ -71,14 +71,16 @@ void MainWindow::scriviDati(float dati[]){
         ui->lAY->setStyleSheet({"#lAY {color: " + textColor + ";}"});
     });
 
-    if((dati[0] > 7) || (dati[0] < -7)){
+    if((dati[0] > 7) || (dati[0] < -7)){ //se l'accelerazione è eccessiva...
         ui->lAX->setStyleSheet({"#lAX {color: red;}"});
         timerX.start(2000);
     }
-    if((dati[1] > 7) || (dati[1] < -7)){
-        ui->lAY->setStyleSheet({"#lAY {color: red;}"});
-        timerY.start(2000);
+    if((dati[1] > 7) || (dati[1] < -7)){ //se l'accelerazione è eccessiva...
+        ui->lAY->setStyleSheet({"#lAY {color: red;}"}); //label diventa rosso
+        timerY.start(2000); //per due secondi, uguale sopra
     }
+
+    //scrivo i dati nella GUI
     ui->lAX->setText("accX" + QString::number(dati[0], 'f', 2));
     ui->lAY->setText("accY" + QString::number(dati[1], 'f', 2));
     ui->lGX->setText("gyroX" + QString::number(dati[3], 'f', 2));

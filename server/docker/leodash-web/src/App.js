@@ -7,7 +7,7 @@ function App() {
 
   const hostIp = process.env.REACT_APP_API_IP;
 
-  useEffect(() => {
+  useEffect(() => { //alcune cosa che fanno certi cambiamenti vanno messe qua
     const fetchData = async () => {
       try {
 
@@ -28,9 +28,9 @@ function App() {
     fetchData();
 
     // Set up interval
-    const interval = setInterval(fetchData, 200);
+    const interval = setInterval(fetchData, 200); //ogni 200ms eseguo fetchData()
 
-    // Cleanup function to clear interval
+    // ripulisco l'intervallo quando e SE non serve più
     return () => clearInterval(interval);
   }, []); // Empty dependency array means this runs once on mount
 
@@ -38,7 +38,7 @@ function App() {
     <div className="App">
       {data ? (
         <div className="sensor-div">
-          {Object.keys(data).map((key, index) => {
+          {Object.keys(data).map((key, index) => { //map itera su un array (dato qui da 'Object.keys()'), rendendo diponibile la sua chiave e anche il suo indice
             return <Quadrante name={key} data={data[key]} />;
           })}
         </div>

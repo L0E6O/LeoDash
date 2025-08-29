@@ -5,7 +5,7 @@
 #include "I2Cdev.h"
 #include "datagatherer.h"
 
-MPU6050 accelgyro(0x68); // indirizzo di default 0x68
+MPU6050 accelgyro(0x68); // indirizzo di default 0x68 del sensore
 
 int16_t ax, ay, az;
 int16_t gx, gy, gz;
@@ -13,8 +13,8 @@ int16_t gx, gy, gz;
 DataGatherer::DataGatherer()  {
 
     std::cout << "Inizializzazione del dispositivo I2C..." << std::endl;
-    I2Cdev::initialize("/dev/i2c-1");
-    accelgyro.initialize();
+    I2Cdev::initialize("/dev/i2c-1"); //inizializzo la porta I2C numero 1
+    accelgyro.initialize(); //inizializzo il sensore
 
     std::cout << "Verifico connessione...";
     if (accelgyro.testConnection()) {
@@ -27,13 +27,9 @@ DataGatherer::DataGatherer()  {
 void DataGatherer::prendiDati(int16_t dati[]){
 
     // Lettura valori raw
-    accelgyro.getMotion6(&gy, &gx, &gz, &ay, &ax, &az);
+    accelgyro.getMotion6(&gy, &gx, &gz, &ay, &ax, &az); //prendo i dati sui 3 assi? non ho individuato l'asse Z nella vita reale
 
-    // Stampa formattata
-    /*std::cout << std::fixed << std::setprecision(1);
-    std::cout << "a/g: "
-              << ax/16384.0f << "\t" << ay/16384.0f << "\t" << az/16384.0f << "\t"
-              << gx/131.0f << "\t" << gy/131.0f << "\t" << gz/131.0f << std::endl;*/
+    //salvo i dati nell'array
     dati[0] = ax;
     dati[1] = ay;
     dati[2] = az;

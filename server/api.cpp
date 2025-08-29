@@ -24,19 +24,22 @@ std::mutex* mtx_p;
 http::response<http::string_body> handle_request(http::request<http::string_body> const& req) {
     if (req.method() == http::verb::get && req.target() == "/api/MPU6050/data/") {
         // Handle GET request
-        mtx_p->lock();
+        mtx_p->lock(); //attivo la mutua esclusione, bloccando tutti gli altri thread, in modo da avere l'accesso esclusivo alle variabili
         nlohmann::json json_response = {{"accX", dati_p[0]},
                                         {"accY", dati_p[1]},
                                         {"gyroX", dati_p[3]},
-                                        {"gyroY", dati_p[4]}};
-        mtx_p->unlock();
-        http::response<http::string_body> res{http::status::ok, req.version()};
+                                        {"gyroY", dati_p[4]}}; //creo oggetto JSON
+        mtx_p->unlock(); //disattivo MUTEX
+        http::response<http::string_body> res{http::status::ok, req.version()}; //imposto status risposta
+        //imposto gli header
         res.set(http::field::server, "Beast");
         res.set(http::field::content_type, "application/json");
         res.set(http::field::access_control_allow_origin, "*");
         res.keep_alive(req.keep_alive());
+        //metto il JSON nel body
         res.body() = json_response.dump();
         res.prepare_payload();
+        //invio
         return res;
     } else if (req.method() == http::verb::post && req.target() == "/api/data") {
         // Handle POST request
@@ -174,14 +177,14 @@ void api::apiServerStartup(float* dati, std::mutex* mtx) {
         std::cout<<"starting server configuration..."<<std::endl;
         dati_p = dati;
         mtx_p = mtx;
-        auto const address = net::ip::make_address("0.0.0.0");
+        auto const address = net::ip::make_address("0.0.0.0"); //indirizzo della macchina, accessibile anche sulla rete
         unsigned short port = 8080;
 
         net::io_context ioc{1};
 
         auto listener = std::make_shared<Listener>(ioc, tcp::endpoint{address, port});
 
-        ioc.run();
+        ioc.run(); //si occupa di orchestrare le socket e tutte le cose di IO di basso livello ma riguardanti il networking
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
